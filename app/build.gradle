@@ -43,6 +43,8 @@ dependencies {
     implementation 'com.sunmi:printerlibrary:1.0.7'
     debugImplementation "io.objectbox:objectbox-android-objectbrowser:$objectboxVersion"
     releaseImplementation "io.objectbox:objectbox-android:$objectboxVersion"
+    implementation 'com.wada811:android-material-design-colors:3.0.0'
+    implementation group: 'com.google.android.material', name: 'material', version: '1.2.0-alpha05'
 }
 
 apply plugin: 'io.objectbox'
