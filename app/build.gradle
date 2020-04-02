@@ -45,6 +45,7 @@ dependencies {
     releaseImplementation "io.objectbox:objectbox-android:$objectboxVersion"
     implementation 'com.wada811:android-material-design-colors:3.0.0'
     implementation group: 'com.google.android.material', name: 'material', version: '1.2.0-alpha05'
+    implementation group: 'joda-time', name: 'joda-time', version: '2.10.5'
 }
 
 apply plugin: 'io.objectbox'
