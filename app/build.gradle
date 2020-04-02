@@ -9,10 +9,13 @@ android {
 
     defaultConfig {
         applicationId "com.unircorn.ticket.offline"
-        minSdkVersion 16
+        minSdkVersion 19
         targetSdkVersion 22
         versionCode 1
         versionName "1.0"
+        ndk {
+            abiFilters 'armeabi', 'armeabi-v7a'
+        }
     }
 
     buildTypes {
@@ -21,7 +24,10 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
     }
-
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
 }
 
 dependencies {
