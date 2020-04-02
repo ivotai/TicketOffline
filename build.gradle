@@ -10,7 +10,7 @@ buildscript {
     }
     dependencies {
         // 3.6.1 自动实现 .aidl 3.6.2 不能，万幸
-        classpath 'com.android.tools.build:gradle:3.6.1'
+        classpath 'com.android.tools.build:gradle:3.6.2'
         classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
         classpath "io.objectbox:objectbox-gradle-plugin:$objectboxVersion"
 

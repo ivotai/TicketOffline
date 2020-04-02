@@ -9,5 +9,5 @@ data class Record(
     @Id
     var id: Long = 0,
     var ticketCode: String,
-    var scanTime: Date
+    var scanTime: Date = Date()
 )
