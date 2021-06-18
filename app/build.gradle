@@ -58,7 +58,7 @@ dependencies {
     implementation 'com.blankj:utilcodex:1.27.1'
     implementation 'com.sunmi:printerlibrary:1.0.7'
     implementation "io.objectbox:objectbox-android-objectbrowser:$objectboxVersion"
-    implementation 'com.wada811:android-material-design-colors:3.0.0'
+    implementation (name:'android-material-design-colors-3.0.0', ext:'aar')
     implementation group: 'com.google.android.material', name: 'material', version: '1.2.0-alpha05'
     implementation group: 'joda-time', name: 'joda-time', version: '2.10.5'
     implementation 'com.afollestad.material-dialogs:core:3.2.1'
