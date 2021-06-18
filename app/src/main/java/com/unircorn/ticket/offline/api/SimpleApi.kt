@@ -2,7 +2,9 @@ package com.unircorn.ticket.offline.api
 
 import com.blankj.utilcode.util.DeviceUtils
 import com.unircorn.ticket.offline.Global
+import com.unircorn.ticket.offline.model.BaseResponse
 import com.unircorn.ticket.offline.model.LoginResponse
+import com.unircorn.ticket.offline.model.OfflineCheckinParam
 import io.reactivex.Observable
 import io.reactivex.Single
 import org.joda.time.DateTime
@@ -22,5 +24,8 @@ interface SimpleApi {
 
     @GET("login/silence")
     fun loginSilently(@Query("token") token: String = Global.token): Call<LoginResponse>
+
+    @POST("api/v1/pda/ticket/order/create")
+    fun offlineCheckin(@Body offlineCheckinParam: OfflineCheckinParam): Single<BaseResponse<Any>>
 
 }

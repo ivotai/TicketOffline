@@ -3,6 +3,7 @@ package com.unircorn.ticket.offline
 import com.blankj.utilcode.util.ToastUtils
 import com.unircorn.ticket.offline.base.BaseAct
 import com.unircorn.ticket.offline.di.Holder
+import com.unircorn.ticket.offline.model.OfflineCheckinParam
 import io.reactivex.rxkotlin.subscribeBy
 import kotlinx.android.synthetic.main.act_login.*
 
@@ -27,6 +28,7 @@ class LoginAct : BaseAct() {
                         mask.dismiss()
                         if (it.failed) return@subscribeBy
                         Global.loginResponse = it
+                        offlineCheckin()
                     },
                     onError = {
                         mask.dismiss()
@@ -43,6 +45,30 @@ class LoginAct : BaseAct() {
             return
         }
         login()
+    }
+
+    private fun offlineCheckin() {
+        val mask = DialogHelper.showMask(this)
+        val query = Holder.appComponent.recordBox().query().build()
+        val recordList = query.find()
+        query.close()
+        Holder.appComponent.api().offlineCheckin(OfflineCheckinParam(recordList = recordList))
+            .observeOnMain(this)
+            .subscribeBy(
+                onSuccess = {
+                    mask.dismiss()
+                    if (it.failed) {
+                        ToastUtils.showShort("上传离线记录失败")
+                        return@subscribeBy
+                    }
+                    ToastUtils.showShort("上传离线记录成功")
+                    Holder.appComponent.recordBox().removeAll()
+                },
+                onError = {
+                    mask.dismiss()
+                    ToastUtils.showShort("上传离线记录失败")
+                }
+            )
     }
 
     override val layoutId = R.layout.act_login

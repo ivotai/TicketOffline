@@ -21,6 +21,9 @@ class ScanAct : BaseScanAct() {
     override fun bindIntent() {
         super.bindIntent()
         llCheckin.clicks().subscribe { scanTicketCode() }
+
+        btnUpload.safeClicks().subscribe { startAct(LoginAct::class.java) }
+
     }
 
     override val layoutId = R.layout.act_scan
