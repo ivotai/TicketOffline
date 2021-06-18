@@ -34,6 +34,9 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
     }
+    kotlinOptions {
+        jvmTarget = "1.8"
+    }
     compileOptions {
         sourceCompatibility JavaVersion.VERSION_1_8
         targetCompatibility JavaVersion.VERSION_1_8
@@ -62,6 +65,18 @@ dependencies {
     implementation group: 'com.google.android.material', name: 'material', version: '1.2.0-alpha05'
     implementation group: 'joda-time', name: 'joda-time', version: '2.10.5'
     implementation 'com.afollestad.material-dialogs:core:3.2.1'
+    implementation 'com.flyco.roundview:FlycoRoundView_Lib:1.1.4@aar'
+    implementation 'io.reactivex.rxjava2:rxkotlin:2.4.0'
+    implementation 'com.jakewharton.rxbinding3:rxbinding:3.0.0'
+    implementation 'com.github.florent37:rxlifecycle:2.0.5'
+    implementation 'com.kaopiz:kprogresshud:1.0.2'
+    // squareup
+    implementation 'com.squareup.retrofit2:retrofit:2.6.1'
+    implementation 'com.squareup.retrofit2:converter-gson:2.6.1'
+    implementation 'com.squareup.retrofit2:adapter-rxjava2:2.6.1'
+    implementation 'com.squareup.okhttp3:okhttp:4.0.1'
+    implementation 'com.squareup.okhttp3:logging-interceptor:4.0.1'
+
 }
 
 apply plugin: 'io.objectbox'
