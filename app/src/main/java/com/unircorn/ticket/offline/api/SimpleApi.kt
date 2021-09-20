@@ -25,7 +25,7 @@ interface SimpleApi {
     @GET("login/silence")
     fun loginSilently(@Query("token") token: String = Global.token): Call<LoginResponse>
 
-    @POST("api/v1/pda/ticket/order/create")
+    @POST("api/v1/offline-checkin")
     fun offlineCheckin(@Body offlineCheckinParam: OfflineCheckinParam): Single<BaseResponse<Any>>
 
 }

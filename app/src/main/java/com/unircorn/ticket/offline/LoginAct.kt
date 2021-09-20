@@ -26,12 +26,17 @@ class LoginAct : BaseAct() {
                 .subscribeBy(
                     onSuccess = {
                         mask.dismiss()
-                        if (it.failed) return@subscribeBy
+                        if (it.failed) {
+                            ToastUtils.showShort("登录失败")
+                            return@subscribeBy
+                        }
+                        ToastUtils.showShort("登录成功")
                         Global.loginResponse = it
                         offlineCheckin()
                     },
                     onError = {
                         mask.dismiss()
+                        ToastUtils.showShort("登录失败")
                     }
                 )
         }
@@ -63,6 +68,7 @@ class LoginAct : BaseAct() {
                     }
                     ToastUtils.showShort("上传离线记录成功")
                     Holder.appComponent.recordBox().removeAll()
+                    finish()
                 },
                 onError = {
                     mask.dismiss()
